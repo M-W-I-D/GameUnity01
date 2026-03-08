@@ -1,0 +1,494 @@
+fileFormatVersion: 2
+guid: 9d967cd602e958e40ad086a743255a41
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8661420460430582670
+    second: HinhKhoi_0
+  - first:
+      213: 5011415062085434930
+    second: HinhKhoi_1
+  - first:
+      213: -4016025782084249440
+    second: HinhKhoi_2
+  - first:
+      213: 896012829710402060
+    second: HinhKhoi_3
+  - first:
+      213: 1147945154414932697
+    second: HinhKhoi_4
+  - first:
+      213: -8107001691058723710
+    second: HinhKhoi_5
+  - first:
+      213: -2820713640035476318
+    second: HinhKhoi_6
+  - first:
+      213: 6474716920292315022
+    second: HinhKhoi_7
+  - first:
+      213: 1884572039316865447
+    second: HinhKhoi_8
+  - first:
+      213: -8356789467098231254
+    second: HinhKhoi_9
+  - first:
+      213: -8788180899697247473
+    second: HinhKhoi_10
+  - first:
+      213: 2927085184163577763
+    second: HinhKhoi_11
+  - first:
+      213: -3140986251085153330
+    second: HinhKhoi_12
+  - first:
+      213: 4183486078885708332
+    second: HinhKhoi_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HinhKhoi_0
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 441
+        width: 578
+        height: 558
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c1cbd3bf37cc780800000000000000
+      internalID: -8661420460430582670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 335
+        width: 70
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23ef4a5827f1c8540800000000000000
+      internalID: 5011415062085434930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_2
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 335
+        width: 137
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a8de0a34d53448c0800000000000000
+      internalID: -4016025782084249440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_3
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 335
+        width: 250
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02c41ddbe64f6c00800000000000000
+      internalID: 896012829710402060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_4
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 335
+        width: 259
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d2788e29025eef00800000000000000
+      internalID: 1147945154414932697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_5
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 183
+        width: 70
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28424fa2ae42e7f80800000000000000
+      internalID: -8107001691058723710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_6
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 183
+        width: 137
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ac1690a3efcad8d0800000000000000
+      internalID: -2820713640035476318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_7
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 64
+        width: 74
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8f0c370cb0dad950800000000000000
+      internalID: 6474716920292315022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_8
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 123
+        width: 146
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a18d1de848572a10800000000000000
+      internalID: 1884572039316865447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_9
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 63
+        width: 74
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2e42ee7148b60c80800000000000000
+      internalID: -8356789467098231254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_10
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 183
+        width: 196
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0b3ca3980c1a0680800000000000000
+      internalID: -8788180899697247473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_11
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 39
+        width: 136
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aff06577781f9820800000000000000
+      internalID: 2927085184163577763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_12
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 95
+        width: 69
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecbfea375a9f864d0800000000000000
+      internalID: -3140986251085153330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HinhKhoi_13
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 39
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2246c67c6abe0a30800000000000000
+      internalID: 4183486078885708332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HinhKhoi_0: -8661420460430582670
+      HinhKhoi_1: 5011415062085434930
+      HinhKhoi_10: -8788180899697247473
+      HinhKhoi_11: 2927085184163577763
+      HinhKhoi_12: -3140986251085153330
+      HinhKhoi_13: 4183486078885708332
+      HinhKhoi_2: -4016025782084249440
+      HinhKhoi_3: 896012829710402060
+      HinhKhoi_4: 1147945154414932697
+      HinhKhoi_5: -8107001691058723710
+      HinhKhoi_6: -2820713640035476318
+      HinhKhoi_7: 6474716920292315022
+      HinhKhoi_8: 1884572039316865447
+      HinhKhoi_9: -8356789467098231254
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
