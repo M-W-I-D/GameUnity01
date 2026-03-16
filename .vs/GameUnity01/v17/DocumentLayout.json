@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\MANH\\GameUnity01\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|C:\\Users\\MANH\\GameUnity01\\assets\\scripts\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|C:\\Users\\MANH\\GameUnity01\\assets\\scripts\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|C:\\Users\\MANH\\GameUnity01\\assets\\scripts\\blocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\blocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|C:\\Users\\MANH\\GameUnity01\\assets\\scripts\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|c:\\users\\manh\\gameunity01\\assets\\scripts\\polyominos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F29FB7C1-B27C-5C52-7789-A7C075DBEFCF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\polyominos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Polyominos.cs",
+              "DocumentMoniker": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Polyominos.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Polyominos.cs",
+              "ToolTip": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Polyominos.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Polyominos.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAswB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:29:21.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Block.cs",
+              "DocumentMoniker": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Block.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Block.cs",
+              "ToolTip": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Block.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Block.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:21:49.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Blocks.cs",
+              "DocumentMoniker": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Blocks.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Blocks.cs",
+              "ToolTip": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Blocks.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Blocks.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T18:18:25.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Board.cs",
+              "DocumentMoniker": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Board.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Board.cs",
+              "ToolTip": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Board.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Board.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAuwC0AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T17:46:29.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cell.cs",
+              "DocumentMoniker": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Cell.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cell.cs",
+              "ToolTip": "C:\\Users\\MANH\\GameUnity01\\Assets\\Scripts\\Cell.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cell.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAswCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T17:25:41.503Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
