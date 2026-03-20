@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 
@@ -8,178 +8,208 @@ namespace Game
     {
         public const int Size = 5;
 
-        private readonly Vector3 inputOffset = new(0.0f, 2.0f, 0.0f);
-
+        [Header("References")]
         [SerializeField] private Board board;
-
         [SerializeField] private Blocks blocks;
-
         [SerializeField] private Cell cellPrefab;
 
         private SortingGroup sortingGroup;
-
-        private int polyominoIndex;
+        private Camera cam;
 
         private readonly Cell[,] cells = new Cell[Size, Size];
 
-        private Vector3 position;
+        private int polyIndex;
 
-        private Vector3 scale;
+        private Vector3 startPosition;
+        private Vector3 startScale;
 
-        private Vector2 inputPoint;
+        private Vector3 dragStartWorld;
+        private Vector2 shapeCenter;
 
-        private Vector3 previousMousePosition = Vector3.positiveInfinity;
+        private Vector2Int currentGridPos;
+        private Vector2Int lastGridPos;
 
-        private Vector2Int previousDragPoint;
+        private bool isDragging;
 
-        private Vector2Int currentDragPoint;
-
-        //Cache 
-
-        private Camera mainCamera;
-        private Vector2 center;
-
+        // =========================
+        // INIT
+        // =========================
         private void Awake()
         {
-            sortingGroup = gameObject.GetComponent<SortingGroup>();
-            mainCamera = Camera.main;
+            sortingGroup = GetComponent<SortingGroup>();
+            cam = Camera.main;
         }
+
         public void Initialize()
         {
-            for (var r = 0; r < Size; ++r)
+            for (int r = 0; r < Size; r++)
             {
-                for (var c = 0; c < Size; ++c)
+                for (int c = 0; c < Size; c++)
                 {
                     cells[r, c] = Instantiate(cellPrefab, transform);
                 }
             }
 
-            position = transform.localPosition;
-            scale = transform.localScale;
+            startPosition = transform.localPosition;
+            startScale = transform.localScale;
         }
 
-        public void Show(int polyominoIndex)
+        // =========================
+        // SHOW SHAPE
+        // =========================
+        public void Show(int index)
         {
-            this.polyominoIndex = polyominoIndex;
+            polyIndex = index;
+            HideAll();
 
-            Hide();
+            var shape = Polyominos.Get(index);
 
-            var polyomino = Polyominos.Get(polyominoIndex);
-            var polyominoRows = polyomino.GetLength(0);
-            var polyominoColumns = polyomino.GetLength(1);
-            center = new Vector2(polyominoColumns * 0.5f, polyominoRows * 0.5f);
+            int rows = shape.GetLength(0);
+            int cols = shape.GetLength(1);
 
-            for (var r = 0; r < polyominoRows; ++r)
+            shapeCenter = new Vector2(cols * 0.5f, rows * 0.5f);
+
+            for (int r = 0; r < rows; r++)
             {
-                for (var c = 0; c < polyominoColumns; ++c)
+                for (int c = 0; c < cols; c++)
                 {
-                    if (polyomino[r, c] > 0)
-                    {
-                        cells[r, c].transform.localPosition = new(c - center.x + 0.5f, r - center.y + 0.5f, 0.0f);
-                        cells[r, c].Normal();
-                    }
+                    if (shape[r, c] == 0) continue;
+
+                    cells[r, c].transform.localPosition =
+                        new Vector3(c - shapeCenter.x + 0.5f, r - shapeCenter.y + 0.5f, 0);
+
+                    cells[r, c].Normal();
                 }
             }
         }
 
-        private void Hide()
+        private void HideAll()
         {
-            for (var r = 0; r < Size; ++r)
-            {
-                for (var c = 0; c < Size; ++c)
-                {
+            for (int r = 0; r < Size; r++)
+                for (int c = 0; c < Size; c++)
                     cells[r, c].Hide();
-                }
-            }
         }
 
+        // =========================
+        // INPUT
+        // =========================
         private void OnMouseDown()
         {
-            Debug.Log("OnMouseDown");
+            isDragging = true;
 
-            inputPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            dragStartWorld = GetMouseWorld();
 
-            transform.localPosition = position + inputOffset;
+            transform.localPosition = startPosition + Vector3.up * 2f;
             transform.localScale = Vector3.one;
 
             blocks.ResetBlocksSortingOrders();
-            SetSortingOrder(1);
-            currentDragPoint = Vector2Int.RoundToInt((Vector2)transform.position - center);
-            board.Hover(currentDragPoint, polyominoIndex);
-            Highlight(board.HighlightPolyominoColumns, board.HighlightPolyominoRows);
-            previousDragPoint = currentDragPoint;
+            sortingGroup.sortingOrder = 1;
 
-            previousMousePosition = Input.mousePosition;
+            UpdateGridPosition();
+            board.Hover(currentGridPos, polyIndex);
+            HighlightPreview();
+
+            lastGridPos = currentGridPos;
         }
 
         private void OnMouseDrag()
         {
-            var currentMousePosition = Input.mousePosition;
-            if (currentMousePosition != previousMousePosition)
+            if (!isDragging) return;
+
+            Vector3 currentWorld = GetMouseWorld();
+            Vector3 delta = currentWorld - dragStartWorld;
+
+            transform.localPosition = startPosition + Vector3.up * 2f + delta * 1.4f;
+
+            UpdateGridPosition();
+
+            if (currentGridPos != lastGridPos)
             {
-                previousMousePosition = currentMousePosition;
+                lastGridPos = currentGridPos;
 
-                var inputDelta = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition) - inputPoint;
-                transform.localPosition = position + inputOffset + (Vector3)inputDelta * 1.4f;
-
-                currentDragPoint = Vector2Int.RoundToInt((Vector2)transform.position - center);
-                if (currentDragPoint != previousDragPoint)
-                {
-                    previousDragPoint = currentDragPoint;
-                    board.Hover(currentDragPoint, polyominoIndex);
-                    Highlight(board.HighlightPolyominoColumns, board.HighlightPolyominoRows);
-                }
+                board.Hover(currentGridPos, polyIndex);
+                HighlightPreview();
             }
         }
 
         private void OnMouseUp()
         {
-            previousMousePosition = Vector3.positiveInfinity;
+            if (!isDragging) return;
 
-            currentDragPoint = Vector2Int.RoundToInt((Vector2)transform.position - center);
-            if (board.Place(currentDragPoint, polyominoIndex) == true)
+            isDragging = false;
+
+            UpdateGridPosition();
+
+            if (board.Place(currentGridPos, polyIndex))
             {
                 gameObject.SetActive(false);
                 blocks.Remove();
             }
 
-            transform.localPosition = position;
-            transform.localScale = scale;
+            ResetTransform();
         }
 
-        private void Highlight(List<int> columns, List<int> rows)
+        // =========================
+        // GRID CALCULATION
+        // =========================
+        private void UpdateGridPosition()
         {
-            var polyomino = Polyominos.Get(polyominoIndex);
-            var polyominoRows = polyomino.GetLength(0);
-            var polyominoColumns = polyomino.GetLength(1);
+            Vector2 pos = transform.position;
 
-            Unhighlight(polyominoColumns, polyominoRows, polyomino);
-
-            HighlightColumns(polyominoRows, polyomino, columns);
-            HighlightRows(polyominoColumns, polyomino, rows);
+            currentGridPos = new Vector2Int(
+                Mathf.RoundToInt(pos.x - shapeCenter.x),
+                Mathf.RoundToInt(pos.y - shapeCenter.y)
+            );
         }
 
-        private void Unhighlight(int polyominoColumns, int polyominoRows, int[,] polyomino)
+        private Vector3 GetMouseWorld()
         {
-            for (var r = 0; r < polyominoRows; ++r)
-            {
-                for (var c = 0; c < polyominoColumns; ++c)
-                {
-                    if (polyomino[r, c] > 0)
-                    {
+            Vector3 mouse = Input.mousePosition;
+            mouse.z = Mathf.Abs(cam.transform.position.z);
+            return cam.ScreenToWorldPoint(mouse);
+        }
+
+        // =========================
+        // VISUAL
+        // =========================
+        private void HighlightPreview()
+        {
+            var shape = Polyominos.Get(polyIndex);
+
+            int rows = shape.GetLength(0);
+            int cols = shape.GetLength(1);
+
+            ResetHighlight(shape, rows, cols);
+
+            ApplyHighlight(shape, rows, cols, board.HighlightPolyominoColumns, true);
+            ApplyHighlight(shape, rows, cols, board.HighlightPolyominoRows, false);
+        }
+
+        private void ResetHighlight(int[,] shape, int rows, int cols)
+        {
+            for (int r = 0; r < rows; r++)
+                for (int c = 0; c < cols; c++)
+                    if (shape[r, c] > 0)
                         cells[r, c].Normal();
-                    }
-                }
-            }
         }
 
-        private void HighlightColumns(int polyominoRows, int[,] polyomino, List<int> columns)
+        private void ApplyHighlight(int[,] shape, int rows, int cols, List<int> list, bool isColumn)
         {
-            foreach (var c in columns)
+            foreach (var index in list)
             {
-                for (var r = 0; r < polyominoRows; ++r)
+                // ❗ bỏ qua nếu vượt shape
+                if (isColumn && (index < 0 || index >= cols)) continue;
+                if (!isColumn && (index < 0 || index >= rows)) continue;
+
+                for (int i = 0; i < (isColumn ? rows : cols); i++)
                 {
-                    if (polyomino[r, c] > 0)
+                    int r = isColumn ? i : index;
+                    int c = isColumn ? index : i;
+
+                    // ❗ double check an toàn
+                    if (r < 0 || r >= rows || c < 0 || c >= cols) continue;
+
+                    if (shape[r, c] > 0)
                     {
                         cells[r, c].Highlight();
                     }
@@ -187,23 +217,15 @@ namespace Game
             }
         }
 
-        private void HighlightRows(int polyominoColumns, int[,] polyomino, List<int> rows)
+        private void ResetTransform()
         {
-            foreach (var r in rows)
-            {
-                for (var c = 0; c < polyominoColumns; ++c)
-                {
-                    if (polyomino[r, c] > 0)
-                    {
-                        cells[r, c].Highlight();
-                    }
-                }
-            }
+            transform.localPosition = startPosition;
+            transform.localScale = startScale;
         }
 
-        public void SetSortingOrder(int sortingOrder)
+        public void SetSortingOrder(int order)
         {
-            sortingGroup.sortingOrder = sortingOrder;
+            sortingGroup.sortingOrder = order;
         }
     }
 }

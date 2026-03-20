@@ -1,107 +1,126 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 namespace Game
 {
     public class Blocks : MonoBehaviour
     {
+        [Header("References")]
         [SerializeField] private Board board;
-
         [SerializeField] private Block[] blocks;
 
-        [Space(8.0f)]
+        [Header("UI")]
         [SerializeField] private GameObject loseGameObject;
 
-        private int[] polyominoIndexes;
+        private int[] polyIndexes;
+        private int activeBlockCount;
 
-        private int blockCount = 0;
-
+        // =========================
+        // INIT
+        // =========================
         private void Start()
         {
             if (blocks == null || blocks.Length == 0)
             {
-                Debug.LogError("Blocks array is not assigned or empty on " + name + ". Initialization aborted.");
+                Debug.LogError("Blocks not assigned!");
                 return;
             }
 
-            var blockWidth = (float)Board.Size / blocks.Length;
-            var cellSize = (float)Board.Size / (Block.Size * blocks.Length + blocks.Length + 1);
-            for (var i = 0; i < blocks.Length; ++i)
-            {
-                if (blocks[i] == null)
-                {
-                    Debug.LogError($"blocks[{i}] is null on {name}.");
-                    continue;
-                }
+            polyIndexes = new int[blocks.Length];
 
-                blocks[i].transform.localPosition = new(blockWidth * (i + 0.5f), -0.25f - cellSize * 4.0f, 0.0f);
-                blocks[i].transform.localScale = new(cellSize, cellSize, cellSize);
-                blocks[i].Initialize();
-            }
-
-            polyominoIndexes = new int[blocks.Length];
-
+            SetupBlocks();
             Generate();
         }
 
-        private void Generate()
+        private void SetupBlocks()
         {
-            if (blocks == null || blocks.Length == 0) return;
+            float width = (float)Board.Size / blocks.Length;
+            float cellSize = (float)Board.Size / (Block.Size * blocks.Length + blocks.Length + 1);
 
-            blockCount = 0;
-            for (var i = 0; i < blocks.Length; ++i)
+            for (int i = 0; i < blocks.Length; i++)
             {
-                polyominoIndexes[i] = Random.Range(0, Polyominos.Length);
-                if (blocks[i] == null) continue;
-                blocks[i].gameObject.SetActive(true);
-                blocks[i].Show(polyominoIndexes[i]);
-                ++blockCount;
+                if (blocks[i] == null)
+                {
+                    Debug.LogError($"Block[{i}] is null!");
+                    continue;
+                }
+
+                blocks[i].transform.localPosition = new Vector3(
+                    width * (i + 0.5f),
+                    -0.25f - cellSize * 4f,
+                    0f
+                );
+
+                blocks[i].transform.localScale = Vector3.one * cellSize;
+                blocks[i].Initialize();
             }
         }
 
+        // =========================
+        // GENERATE BLOCKS
+        // =========================
+        private void Generate()
+        {
+            activeBlockCount = 0;
+
+            for (int i = 0; i < blocks.Length; i++)
+            {
+                if (blocks[i] == null) continue;
+
+                polyIndexes[i] = Random.Range(0, Polyominos.Length);
+
+                blocks[i].gameObject.SetActive(true);
+                blocks[i].Show(polyIndexes[i]);
+
+                activeBlockCount++;
+            }
+        }
+
+        // =========================
+        // REMOVE BLOCK
+        // =========================
         public void Remove()
         {
-            --blockCount;
-            if (blockCount <= 0)
+            activeBlockCount--;
+
+            if (activeBlockCount <= 0)
             {
-                blockCount = 0;
                 Generate();
             }
 
+            CheckLose();
+        }
+
+        // =========================
+        // CHECK LOSE
+        // =========================
+        private void CheckLose()
+        {
             if (board == null)
             {
-                Debug.LogError("Board reference not set on " + name + ". Cannot check for lose condition.");
+                Debug.LogError("Board not assigned!");
                 return;
             }
 
-            var lose = true;
-            for (var i = 0; i < blocks.Length; ++i)
+            for (int i = 0; i < blocks.Length; i++)
             {
                 if (blocks[i] == null) continue;
-                if (blocks[i].gameObject.activeSelf == true && board.CheckPlace(polyominoIndexes[i]) == true)
+
+                if (!blocks[i].gameObject.activeSelf) continue;
+
+                if (board.CheckPlace(polyIndexes[i]))
                 {
-                    lose = false;
-                    break;
+                    // còn chỗ đặt → chưa thua
+                    return;
                 }
             }
 
-            if (lose == true)
-            {
-                Lose();
-            }
+            // không block nào đặt được → thua
+            Lose();
         }
 
-        public void ResetBlocksSortingOrders()
-        {
-            if (blocks == null) return;
-            for (var i = 0; i < blocks.Length; ++i)
-            {
-                if (blocks[i] == null) continue;
-                blocks[i].SetSortingOrder(0);
-            }
-        }
-
+        // =========================
+        // LOSE
+        // =========================
         private void Lose()
         {
             if (loseGameObject != null)
@@ -110,16 +129,24 @@ namespace Game
             }
             else
             {
-                Debug.LogWarning("loseGameObject is not assigned.");
+                Debug.LogWarning("Lose UI not assigned!");
             }
 
-            StartCoroutine(DelayAndLoseCoroutine());
+            // ❌ không auto reload nữa
         }
 
-        private IEnumerator DelayAndLoseCoroutine()
+        // =========================
+        // SORTING
+        // =========================
+        public void ResetBlocksSortingOrders()
         {
-            yield return new WaitForSeconds(3.0f);
-            SceneManager.LoadScene("Game");
+            if (blocks == null) return;
+
+            foreach (var block in blocks)
+            {
+                if (block == null) continue;
+                block.SetSortingOrder(0);
+            }
         }
     }
 }

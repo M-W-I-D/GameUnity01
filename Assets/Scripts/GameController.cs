@@ -7,7 +7,7 @@ namespace Game
     {
         public void OnReplayClick()
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
