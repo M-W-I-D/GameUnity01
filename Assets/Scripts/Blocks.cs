@@ -123,16 +123,22 @@ namespace Game
         // =========================
         private void Lose()
         {
+            Debug.Log("[Game] LOSE");
+
             if (loseGameObject != null)
             {
                 loseGameObject.SetActive(true);
             }
-            else
-            {
-                Debug.LogWarning("Lose UI not assigned!");
-            }
 
-            // ❌ không auto reload nữa
+            // 🔥 auto restart sau 2 giây
+            Invoke(nameof(RestartGame), 2f);
+        }
+
+        private void RestartGame()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+            );
         }
 
         // =========================

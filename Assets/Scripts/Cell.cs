@@ -13,7 +13,8 @@ namespace Game
 
         private void Awake()
         {
-            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sortingOrder = 0;
         }
 
         public void Normal()
